@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home -->
+  <url>
+    <loc>https://travelwithopulence.com/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Study Abroad -->
+  <url>
+    <loc>https://travelwithopulence.com/Study-abroad</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Deals -->
+  <url>
+    <loc>https://travelwithopulence.com/Deals</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Destinations -->
+  <url>
+    <loc>https://travelwithopulence.com/Destinations</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Luxury Travel -->
+  <url>
+    <loc>https://travelwithopulence.com/Luxury-travel</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://travelwithopulence.com/about</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://travelwithopulence.com/Contact</loc>
+    <priority>0.7</priority>
+  </url>
+</urlset>
