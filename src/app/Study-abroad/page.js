@@ -111,7 +111,7 @@ export default function Page() {
             ))
           ) : (
             <p className="text-gray-600 text-lg text-center col-span-2">
-              No programs found for "{searchTerm}".
+              No programs found for {`"${searchTerm}"`}.
             </p>
           )}
         </div>
