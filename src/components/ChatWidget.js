@@ -31,15 +31,15 @@ export default function ChatWidget() {
 
   // 🔥 Listen for Telegram replies via SSE
   useEffect(() => {
-    const eventSource = new EventSource("/api/webhook");
+    const eventSource = new EventSource("/api/telegram/stream");
 
     eventSource.onmessage = (event) => {
-      const data = JSON.parse(event.data);
+      const text = event.data;
 
       const consultantMessage = {
         id: Date.now(),
         role: "consultant",
-        content: data.text,
+        content: text,
       };
 
       setMessages((prev) => [...prev, consultantMessage]);
@@ -67,9 +67,10 @@ export default function ChatWidget() {
 
     setMessages((prev) => [...prev, userMessage]);
 
-    await fetch("/api/send", {
+    await fetch("/api/telegram/send", {
       method: "POST",
-      body: JSON.stringify({ text: input }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: input }),
     });
 
     setInput("");

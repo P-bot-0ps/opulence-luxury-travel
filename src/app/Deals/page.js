@@ -101,7 +101,7 @@ export default function Deals() {
 
         {/* Optimized Responsive CTA Image */}
         <img
-          src="/image/sales.png"
+          src="/image/sale.jpg"
           alt="sales promotion"
           loading="lazy"
           className="
