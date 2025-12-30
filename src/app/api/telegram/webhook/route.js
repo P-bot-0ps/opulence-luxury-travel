@@ -5,16 +5,28 @@ export async function POST(req) {
 
     // 2. Compare with your .env secret
     if (secret !== process.env.TELEGRAM_WEBHOOK_SECRET) {
+      console.log("❌ Wrong secret:", secret);
       return new Response("Unauthorized", { status: 401 });
     }
 
     // 3. Parse the incoming Telegram update
     const update = await req.json();
-    const message = update?.message?.text;
+    console.log("📩 Incoming Telegram update:", update);
 
-    // 4. Store the message for SSE broadcasting
+    // 4. Extract text from ANY message type
+    const message =
+      update?.message?.text ||
+      update?.edited_message?.text ||
+      update?.channel_post?.text ||
+      update?.callback_query?.data ||
+      null;
+
+    // 5. Store the message for SSE broadcasting
     if (message) {
+      console.log("💬 Storing message for SSE:", message);
       global.latestTelegramMessage = message;
+    } else {
+      console.log("⚠️ No text message found in update");
     }
 
     return new Response("ok");
