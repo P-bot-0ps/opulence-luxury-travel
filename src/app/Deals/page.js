@@ -46,10 +46,10 @@ export default function Deals() {
           alt="Travel deals"
           loading="lazy"
           className="
-            mx-auto mt-8 rounded-xl shadow-lg 
-            w-full 
-            max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 
-            h-auto object-cover
+    mx-auto mt-8 rounded-xl shadow-lg
+    w-full
+    max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg
+    h-auto object-cover
           "
         />
       </section>
@@ -101,14 +101,14 @@ export default function Deals() {
 
         {/* Optimized Responsive CTA Image */}
         <img
-          src="/image/sale.jpg"
-          alt="Sales promotion"
+          src="/image/sales.png"
+          alt="sales promotion"
           loading="lazy"
           className="
-            mx-auto mt-8 rounded-xl shadow-lg 
-            w-full 
-            max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 
-            h-auto object-cover
+    mx-auto mt-8 rounded-xl shadow-lg
+    w-full
+    max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg
+    h-auto object-cover
           "
         />
       </section>
