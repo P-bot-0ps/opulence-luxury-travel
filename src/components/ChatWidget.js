@@ -96,7 +96,7 @@ export default function ChatWidget() {
         <div className="bg-blue-900 text-white px-4 py-2 rounded-t-xl flex items-center gap-3">
           <video
             ref={videoRef}
-            src="/chat-concierge.mp4"
+            src="/public/chat-concierge.mp4"
             muted
             playsInline
             onMouseEnter={handlePlayWithSound}
