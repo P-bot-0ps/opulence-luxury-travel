@@ -3,20 +3,22 @@ import { useState, useEffect } from "react";
 
 export default function WidgetCarousel({ categoryKey }) {
   const baseLinks = {
-    flight: "https://aviasales.tpx.lt/rncs1eKv",
+    flight: "https://aviasales.tpx.lt/N2KaHdGy",
+    hotel: "https://gocity.tpx.lt/bNxJZzOX",
+    car: "https://getrentacar.tpx.lt/jaLyTssr",
     cruise: "https://searadar.tpx.lt/HPqvCP3V",
-    hotel: "https://tiqets.tpx.lt/ZgDy8dBa",
-    car: "https://economybookings.tpx.lt/nWcYhHEf",
     yacht: "https://searadar.tpx.lt/HPqvCP3V",
+    experience: "https://gocity.tpx.lt/bNxJZzOX", // temporary or real link
   };
 
   const [link, setLink] = useState(baseLinks[categoryKey]);
 
   useEffect(() => {
-    // Add tracking params client-side only
     if (categoryKey === "cruise" || categoryKey === "yacht") {
       const journeyId = crypto.randomUUID();
       setLink(`${baseLinks[categoryKey]}?trs=477718&journey_id=${journeyId}`);
+    } else {
+      setLink(baseLinks[categoryKey]); // reset for normal categories
     }
   }, [categoryKey]);
 
@@ -28,6 +30,7 @@ export default function WidgetCarousel({ categoryKey }) {
     hotel: "🏨 Book Attractions & Hotels",
     car: "🚗 Rent a Car",
     yacht: "⛵ Charter a Yacht",
+    experience: "🎟️ Book Experiences",
   };
 
   const buttonLabels = {
@@ -36,6 +39,7 @@ export default function WidgetCarousel({ categoryKey }) {
     hotel: "Explore Hotels & Tickets",
     car: "Find Cars",
     yacht: "Book Yachts",
+    experience: "Explore Experiences",
   };
 
   return (
@@ -43,6 +47,7 @@ export default function WidgetCarousel({ categoryKey }) {
       <h3 className="text-lg font-bold mb-3 text-[#1A5276]">
         {cardTitles[categoryKey]}
       </h3>
+
       <a
         href={link}
         target="_blank"

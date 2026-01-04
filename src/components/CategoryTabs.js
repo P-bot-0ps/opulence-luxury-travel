@@ -10,7 +10,7 @@ const categories = [
     label: "Cruise Lines",
     icon: "cruise",
     deal: {
-      title: "Royal Caribbean Escape",
+      title: "MSC, Carnival,Princess,Royal Caribbean Escape",
       description: "Luxury cruise to the Mediterranean",
       style: "heart",
     },

@@ -1,10 +1,10 @@
 "use client";
-
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function Deals() {
+  const [activePlan, setActivePlan] = useState("basic");
+
   useEffect(() => {
-    // Attach scripts after mount to avoid hydration mismatch
     const widgets = [
       {
         id: "flight-widget",
@@ -28,8 +28,119 @@ export default function Deals() {
     });
   }, []);
 
+  const renderPlanContent = () => {
+    const button = (
+      <a
+        href="/Contact"
+        className="inline-block mt-6 bg-[#D4AC0D] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#B7950B] transition"
+      >
+        Book This Plan
+      </a>
+    );
+
+    switch (activePlan) {
+      case "basic":
+        return (
+          <div className="p-6 bg-white rounded-xl shadow-lg">
+            <h3 className="text-2xl font-bold text-[#1A5276] mb-4">
+              Basic Planning — $99
+            </h3>
+            <ul className="text-gray-700 space-y-3">
+              <li>• 3 curated hotel suggestions in one destination</li>
+              <li>• Best flight routes + cheapest fare windows</li>
+              <li>• Transportation overview (airport → hotel)</li>
+              <li>• You receive a clean plan — you book everything yourself</li>
+            </ul>
+            {button}
+          </div>
+        );
+
+      case "works":
+        return (
+          <div className="p-6 bg-white rounded-xl shadow-lg">
+            <h3 className="text-2xl font-bold text-[#1A5276] mb-4">
+              The Works — $299
+            </h3>
+            <ul className="text-gray-700 space-y-3">
+              <li>• Everything in Basic Planning</li>
+              <li>• 3 hotel options across two neighborhoods</li>
+              <li>• Flight comparison (airlines, layovers, baggage rules)</li>
+              <li>• Local transportation plan (metro, Uber, transfers)</li>
+              <li>• 3–5 activity suggestions</li>
+              <li>• A polished PDF itinerary</li>
+            </ul>
+            {button}
+          </div>
+        );
+
+      case "full":
+        return (
+          <div className="p-6 bg-white rounded-xl shadow-lg">
+            <h3 className="text-2xl font-bold text-[#1A5276] mb-4">
+              Full Service — $199
+            </h3>
+            <ul className="text-gray-700 space-y-3">
+              <li>• Full booking done for you</li>
+              <li>• 3 hotel options — we book your choice</li>
+              <li>• Flight booking assistance</li>
+              <li>• Transportation arranged</li>
+              <li>• Concierge-style support</li>
+              <li>• WhatsApp support during your trip</li>
+            </ul>
+            {button}
+          </div>
+        );
+    }
+  };
+
   return (
     <main className="bg-gradient-to-br from-[#fdf6f0] to-[#f7f1e8] text-gray-800 font-inter">
+      {/* Planning Packs Section */}
+      <section className="py-12 px-6 text-center">
+        <h2 className="text-4xl font-playfair text-[#3b2f2f] mb-6">
+          ✨ Travel Planning Packs
+        </h2>
+
+        {/* Tabs */}
+        <div className="flex justify-center gap-4 mb-8 flex-wrap">
+          <button
+            onClick={() => setActivePlan("basic")}
+            className={`px-6 py-2 rounded-full font-semibold ${
+              activePlan === "basic"
+                ? "bg-[#D4AC0D] text-white"
+                : "bg-white text-gray-700 shadow"
+            }`}
+          >
+            Basic Planning — $99
+          </button>
+
+          <button
+            onClick={() => setActivePlan("works")}
+            className={`px-6 py-2 rounded-full font-semibold ${
+              activePlan === "works"
+                ? "bg-[#D4AC0D] text-white"
+                : "bg-white text-gray-700 shadow"
+            }`}
+          >
+            The Works — $299
+          </button>
+
+          <button
+            onClick={() => setActivePlan("full")}
+            className={`px-6 py-2 rounded-full font-semibold ${
+              activePlan === "full"
+                ? "bg-[#D4AC0D] text-white"
+                : "bg-white text-gray-700 shadow"
+            }`}
+          >
+            Full Service — $199
+          </button>
+        </div>
+
+        {/* Tab Content */}
+        <div className="max-w-3xl mx-auto">{renderPlanContent()}</div>
+      </section>
+
       {/* Hero Section */}
       <section className="text-center py-20 px-6">
         <h1 className="text-5xl font-playfair text-[#3b2f2f] mb-4">
@@ -40,24 +151,17 @@ export default function Deals() {
           adventure, and savings.
         </p>
 
-        {/* Optimized Responsive Hero Image */}
         <img
           src="/image/deal.png"
           alt="Travel deals"
           loading="lazy"
-          className="
-    mx-auto mt-8 rounded-xl shadow-lg
-    w-full
-    max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg
-    h-auto object-cover
-          "
+          className="mx-auto mt-8 rounded-xl shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover"
         />
       </section>
 
       {/* Deals Grid */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Flight Deals */}
           <div className="rounded-xl shadow-xl bg-[#fdf6f0] p-6 hover:scale-105 transition-transform duration-300">
             <h2 className="text-3xl font-playfair text-[#1A5276] mb-4">
               ✈️ Flight Deals
@@ -69,7 +173,6 @@ export default function Deals() {
             <div id="flight-widget" className="w-full"></div>
           </div>
 
-          {/* Hotel Deals */}
           <div className="rounded-xl shadow-xl bg-[#fdf6f0] p-6 hover:scale-105 transition-transform duration-300">
             <h2 className="text-3xl font-playfair text-[#1A5276] mb-4">
               🏨 Hotel Deals
@@ -99,17 +202,11 @@ export default function Deals() {
           Book Now
         </a>
 
-        {/* Optimized Responsive CTA Image */}
         <img
           src="/image/sale.jpg"
           alt="sales promotion"
           loading="lazy"
-          className="
-    mx-auto mt-8 rounded-xl shadow-lg
-    w-full
-    max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg
-    h-auto object-cover
-          "
+          className="mx-auto mt-8 rounded-xl shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover"
         />
       </section>
     </main>
