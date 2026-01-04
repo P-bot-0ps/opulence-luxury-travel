@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Icon from "./icon";
 import WidgetCarousel from "./WidgetCarousel";
 
-
 const categories = [
   {
     key: "cruise",
