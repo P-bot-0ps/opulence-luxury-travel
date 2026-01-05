@@ -49,7 +49,10 @@ export default function Navbar() {
           >
             Globetrotter blog
           </Link>
-          <Link href="/Luxury-travel" className="hover:text-[#D4AC0D] transition">
+          <Link
+            href="/Luxury-travel"
+            className="hover:text-[#D4AC0D] transition"
+          >
             Luxury-travel
           </Link>
           <Link href="Study-abroad" className="hover:text-[#D4AC0D] transition">
@@ -91,13 +94,16 @@ export default function Navbar() {
             Globetrotter blog
           </Link>
           <Link
-            href="/Signup"
+            href="/Study-Abroad"
             className="block hover:text-[#D4AC0D] transition"
           >
-            Signup
+            Study-Abroad
           </Link>
-          <Link href="/Login" className="block hover:text-[#D4AC0D] transition">
-            Login
+          <Link
+            href="/ Luxury-travel"
+            className="block hover:text-[#D4AC0D] transition"
+          >
+            Luxury-travel
           </Link>
         </div>
       )}
