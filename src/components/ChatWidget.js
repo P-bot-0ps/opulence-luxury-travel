@@ -80,14 +80,14 @@ export default function ChatWidget() {
     <>
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 bg-orange-800 text-white font-semibold px-5 py-3 rounded-full shadow-lg hover:bg-yellow-300 transition duration-300 ease-in-out z-[9999]"
+        className="fixed bottom-6 right-6 bg-orange-800 text-white font-semibold px-5 py-3 rounded-full shadow-lg hover:bg-yellow-300 transition duration-300 ease-in-out z-9999"
       >
         🛎️ Speak to a Consultant
       </button>
 
       {/* Chat Box */}
       <div
-        className={`fixed bottom-24 right-6 w-80 bg-white border border-gray-300 rounded-xl shadow-2xl flex flex-col z-[9999] transform transition-all duration-300 ${
+        className={`fixed bottom-24 right-6 w-80 bg-white border border-gray-300 rounded-xl shadow-2xl flex flex-col z-9999 transform transition-all duration-300 ${
           open
             ? "opacity-100 translate-y-0 scale-100"
             : "opacity-0 translate-y-4 scale-95 pointer-events-none"
@@ -96,7 +96,7 @@ export default function ChatWidget() {
         <div className="bg-blue-900 text-white px-4 py-2 rounded-t-xl flex items-center gap-3">
           <video
             ref={videoRef}
-            src="/public/chat-concierge.mp4"
+            src="/chat-concierge.mp4"
             muted
             playsInline
             onMouseEnter={handlePlayWithSound}
