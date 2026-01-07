@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Ably from "ably/promises";
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -29,17 +30,19 @@ export default function ChatWidget() {
     }
   }, []);
 
-  // 🔥 Listen for Telegram replies via SSE
+  // 🔥 Ably real-time listener
   useEffect(() => {
-    const eventSource = new EventSource("/api/telegram/stream");
+    const client = new Ably.Realtime.Promise({
+      key: process.env.NEXT_PUBLIC_ABLY_PUBLIC_KEY,
+    });
 
-    eventSource.onmessage = (event) => {
-      const text = event.data;
+    const channel = client.channels.get("opulence_chat");
 
+    channel.subscribe("message", (msg) => {
       const consultantMessage = {
         id: Date.now(),
         role: "consultant",
-        content: text,
+        content: msg.data.text,
       };
 
       setMessages((prev) => [...prev, consultantMessage]);
@@ -49,12 +52,12 @@ export default function ChatWidget() {
           chatRef.current.scrollTop = chatRef.current.scrollHeight;
         }
       }, 50);
-    };
+    });
 
-    return () => eventSource.close();
+    return () => channel.unsubscribe();
   }, []);
 
-  // Send message to Telegram
+  // Send message to Ably backend route
   const sendMessage = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
@@ -67,13 +70,19 @@ export default function ChatWidget() {
 
     setMessages((prev) => [...prev, userMessage]);
 
-    await fetch("/api/telegram/send", {
+    await fetch("/api/publish", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: input }),
     });
 
     setInput("");
+
+    setTimeout(() => {
+      if (chatRef.current) {
+        chatRef.current.scrollTop = chatRef.current.scrollHeight;
+      }
+    }, 50);
   };
 
   return (
