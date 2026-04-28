@@ -1,4 +1,3 @@
-// test change
 import "./globals.css";
 import Footer from "../components/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -21,24 +20,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
 
-        {/* Travelpayouts verification script */}
-        <script
-          data-noptimize="1"
-          data-cfasync="false"
-          data-wpfc-render="false"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                var script = document.createElement("script");
-                script.async = 1;
-                script.src = 'https://tpembars.com/NDc3NzE4.js?t=477718';
-                document.head.appendChild(script);
-              })();
-            `,
-          }}
-        />
-
-        {/* Additional script */}
+        {/* Travelpayouts verification script for travelwithopulence.com */}
         <script
           nowprocket=""
           data-noptimize="1"
