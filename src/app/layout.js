@@ -36,6 +36,26 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+
+        {/* Additional script */}
+        <script
+          nowprocket=""
+          data-noptimize="1"
+          data-cfasync="false"
+          data-wpfc-render="false"
+          seraph-accel-crit="1"
+          data-no-defer="1"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                var script = document.createElement("script");
+                script.async = 1;
+                script.src = 'https://tpembars.com/NDgwMDY2.js?t=480066';
+                document.head.appendChild(script);
+              })();
+            `,
+          }}
+        />
       </head>
 
       <body

@@ -94,13 +94,13 @@ export default function Navbar() {
             Globetrotter blog
           </Link>
           <Link
-            href="/Study-Abroad"
+            href="/Study-abroad"
             className="block hover:text-[#D4AC0D] transition"
           >
             Study-Abroad
           </Link>
           <Link
-            href="/ Luxury-travel"
+            href="/Luxury-travel"
             className="block hover:text-[#D4AC0D] transition"
           >
             Luxury-travel
