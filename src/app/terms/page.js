@@ -66,7 +66,7 @@ export default function TermsPage() {
           <h2 className="text-xl font-semibold mb-2">7. Privacy</h2>
           <p>
             Please review our{" "}
-            <a href="/Terms of Service" className="text-indigo-600 underline">
+            <a href="/Policy" className="text-indigo-600 underline">
               Privacy Policy
             </a>{" "}
             to understand how we handle your data.
@@ -115,7 +115,7 @@ export default function TermsPage() {
               href="mailto:info@travelwithopulence.com"
               className="text-indigo-600 underline"
             >
-              your-email@example.com
+              info@travelwithopulence.com
             </a>
             .
           </p>
