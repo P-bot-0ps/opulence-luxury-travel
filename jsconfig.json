@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": ".", // 👈 this tells the compiler where to start
     "paths": {
-      "@/*": ["src/*"]
-    }
+      "@/*": ["src/*"] // 👈 now @/ maps to src/
+    },
+    "ignoreDeprecations": "6.0"
   }
 }
