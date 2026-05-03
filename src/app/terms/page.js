@@ -94,8 +94,8 @@ export default function TermsPage() {
         <div>
           <h2 className="text-xl font-semibold mb-2">10. Governing Law</h2>
           <p>
-            These Terms are governed by the laws of [Your Country/State].
-            Disputes will be resolved in the courts of [Your Jurisdiction].
+            These Terms are governed by the laws of South Africa. Disputes will
+            be resolved in the courts of South Africa.
           </p>
         </div>
 
